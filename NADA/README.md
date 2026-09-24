@@ -166,7 +166,6 @@ The same commands are in the **View** menu, and the current zoom level is shown 
 | Case study | Alg. 3 (full/partial) | Alg. 4 (hierarchical) | Alg. 5 (conflicts) |
 |---|---|---|---|
 | `Drone` | 0 | 1 (1 permission, 0 prohibition) | 2 (Patterns 12, 12) |
-| `HierarchyDemo` | 0 | 2 (1 permission, 1 prohibition) | 2 (Patterns 9, 12) |
 | `LawFirm` | 0 | 0 | 6 (Patterns 16 ×3, 12 ×2, 13) |
 | `Campus` | 3 prohibition-side (1 full, 2 partial) | 5 (2 permission, 3 prohibition) | 6 (Patterns 9, 10, 11, 14, 15, 17) |
 
