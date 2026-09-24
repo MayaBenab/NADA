@@ -1,0 +1,229 @@
+{
+  "resourceAccessRights": [
+    "drive",
+    "read",
+    "write"
+  ],
+  "graph": {
+    "pcs": [
+      {
+        "id": 17,
+        "name": "Driving"
+      },
+      {
+        "id": 18,
+        "name": "Monitoring"
+      }
+    ],
+    "uas": [
+      {
+        "id": 4,
+        "name": "Trainee",
+        "assignments": [
+          7,
+          18
+        ],
+        "associations": [
+          {
+            "target": 9,
+            "arset": [
+              "read"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Trainer",
+        "assignments": [
+          8,
+          7,
+          18
+        ],
+        "associations": [
+          {
+            "target": 10,
+            "arset": [
+              "read",
+              "write"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Pilot",
+        "assignments": [
+          8
+        ],
+        "associations": [
+          {
+            "target": 11,
+            "arset": [
+              "drive"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "T_Cell",
+        "assignments": [
+          17
+        ],
+        "associations": [
+          {
+            "target": 12,
+            "arset": [
+              "drive"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "M_Cell",
+        "assignments": [
+          17
+        ],
+        "associations": [
+          {
+            "target": 13,
+            "arset": [
+              "drive"
+            ]
+          }
+        ]
+      }
+    ],
+    "oas": [
+      {
+        "id": 9,
+        "name": "Sensor",
+        "assignments": [
+          12,
+          18
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Actuator",
+        "assignments": [
+          13,
+          18
+        ]
+      },
+      {
+        "id": 11,
+        "name": "Emergency",
+        "assignments": [
+          9,
+          10
+        ]
+      },
+      {
+        "id": 12,
+        "name": "T_Zone",
+        "assignments": [
+          17
+        ]
+      },
+      {
+        "id": 13,
+        "name": "M_Zone",
+        "assignments": [
+          17
+        ]
+      }
+    ],
+    "users": [
+      {
+        "id": 1,
+        "name": "Alice",
+        "assignments": [
+          4
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Ali",
+        "assignments": [
+          5
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Bob",
+        "assignments": [
+          6
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": 14,
+        "name": "d1",
+        "assignments": [
+          9
+        ]
+      },
+      {
+        "id": 15,
+        "name": "d2",
+        "assignments": [
+          11
+        ]
+      },
+      {
+        "id": 16,
+        "name": "d3",
+        "assignments": [
+          10
+        ]
+      }
+    ]
+  },
+  "prohibitions": [
+    {
+      "name": "Proh_1",
+      "subject": {
+        "node": 5
+      },
+      "containers": [
+        {
+          "id": 11,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "drive"
+      ],
+      "intersection": true
+    },
+    {
+      "name": "Proh_2",
+      "subject": {
+        "node": 4
+      },
+      "containers": [
+        {
+          "id": 13,
+          "complement": false
+        },
+        {
+          "id": 10,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "drive"
+      ],
+      "intersection": true
+    }
+  ],
+  "obligations": [],
+  "operations": {
+    "resourceOperations": [],
+    "adminOperations": []
+  }
+}

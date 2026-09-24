@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example.ngac</groupId>
+    <artifactId>nada</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>NADA - NGAC Anomaly Detection &amp; Analysis</name>
+    <description>
+        NADA computes and visualizes the NGAC "Complemented Graph" (G_Com) for a policy loaded
+        from JSON, and runs the redundancy/conflict anomaly-detection algorithms over it. Built on
+        NIST's policy-machine-core (NGAC reference implementation).
+    </description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.release>21</maven.compiler.release>
+
+        <!--
+          Version of policy-machine-core to use. This is the version found on the "main" branch
+          of https://github.com/usnistgov/policy-machine-core at the time this project was
+          generated. It is a release-candidate that is NOT (yet) published to Maven Central, so
+          it must be built and installed to your local ~/.m2 repository first.
+          See README.md, section "1. Install policy-machine-core locally".
+        -->
+        <policy-machine-core.version>4.0.1-rc.1</policy-machine-core.version>
+        <junit.version>5.10.2</junit.version>
+    </properties>
+
+    <dependencies>
+        <!-- NGAC reference implementation: PAP / PDP / EPP interfaces + in-memory implementation -->
+        <dependency>
+            <groupId>gov.nist.ngac.pm</groupId>
+            <artifactId>policy-machine-core</artifactId>
+            <version>${policy-machine-core.version}</version>
+        </dependency>
+
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JSON parsing, used to load G and the prohibitions from plain JSON files -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20240303</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>

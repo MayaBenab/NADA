@@ -1,0 +1,455 @@
+{
+  "resourceAccessRights": [
+    "annotate",
+    "archive",
+    "audit",
+    "borrow",
+    "delete",
+    "download",
+    "export",
+    "grade",
+    "print",
+    "publish",
+    "read",
+    "rename",
+    "share",
+    "submit"
+  ],
+  "graph": {
+    "pcs": [
+      {
+        "id": 1,
+        "name": "University"
+      },
+      {
+        "id": 2,
+        "name": "Library"
+      },
+      {
+        "id": 3,
+        "name": "Legacy"
+      }
+    ],
+    "uas": [
+      {
+        "id": 4,
+        "name": "Staff",
+        "assignments": [
+          1
+        ],
+        "associations": [
+          {
+            "target": 8,
+            "arset": [
+              "read"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Teachers",
+        "assignments": [
+          4
+        ],
+        "associations": [
+          {
+            "target": 9,
+            "arset": [
+              "submit",
+              "grade"
+            ]
+          },
+          {
+            "target": 10,
+            "arset": [
+              "export"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Assistants",
+        "assignments": [
+          5
+        ],
+        "associations": [
+          {
+            "target": 8,
+            "arset": [
+              "read"
+            ]
+          },
+          {
+            "target": 9,
+            "arset": [
+              "print",
+              "annotate"
+            ]
+          },
+          {
+            "target": 10,
+            "arset": [
+              "archive"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "name": "Interns",
+        "assignments": [
+          1
+        ],
+        "associations": []
+      },
+      {
+        "id": 14,
+        "name": "Librarians",
+        "assignments": [
+          1,
+          2
+        ],
+        "associations": [
+          {
+            "target": 15,
+            "arset": [
+              "borrow"
+            ]
+          },
+          {
+            "target": 16,
+            "arset": [
+              "borrow"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "name": "ExternalAuditor",
+        "assignments": [
+          3
+        ],
+        "associations": [
+          {
+            "target": 18,
+            "arset": [
+              "audit",
+              "download",
+              "share",
+              "delete",
+              "rename",
+              "publish"
+            ]
+          }
+        ]
+      }
+    ],
+    "oas": [
+      {
+        "id": 8,
+        "name": "Documents",
+        "assignments": [
+          1
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Courses",
+        "assignments": [
+          8
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Exams",
+        "assignments": [
+          9
+        ]
+      },
+      {
+        "id": 13,
+        "name": "Grades",
+        "assignments": [
+          1
+        ]
+      },
+      {
+        "id": 15,
+        "name": "Catalog",
+        "assignments": [
+          1
+        ]
+      },
+      {
+        "id": 16,
+        "name": "Journals",
+        "assignments": [
+          15,
+          2
+        ]
+      },
+      {
+        "id": 18,
+        "name": "AuditLogs",
+        "assignments": [
+          1
+        ]
+      }
+    ],
+    "users": [
+      {
+        "id": 7,
+        "name": "Bob",
+        "assignments": [
+          6
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": 11,
+        "name": "Exam2026",
+        "assignments": [
+          10
+        ]
+      }
+    ]
+  },
+  "prohibitions": [
+    {
+      "name": "no_submit_on_courses",
+      "subject": {
+        "node": 5
+      },
+      "containers": [
+        {
+          "id": 9,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "submit"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "no_grade_on_exams",
+      "subject": {
+        "node": 5
+      },
+      "containers": [
+        {
+          "id": 10,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "grade"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "no_export_on_courses",
+      "subject": {
+        "node": 5
+      },
+      "containers": [
+        {
+          "id": 9,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "export"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "no_print_on_courses",
+      "subject": {
+        "node": 5
+      },
+      "containers": [
+        {
+          "id": 9,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "print"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "no_annotate_on_exams",
+      "subject": {
+        "node": 5
+      },
+      "containers": [
+        {
+          "id": 10,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "annotate"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "no_archive_on_courses",
+      "subject": {
+        "node": 5
+      },
+      "containers": [
+        {
+          "id": 9,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "archive"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "staff_cannot_touch_documents",
+      "subject": {
+        "node": 4
+      },
+      "containers": [
+        {
+          "id": 8,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "delete",
+        "rename",
+        "publish"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "assistants_cannot_delete_exams",
+      "subject": {
+        "node": 6
+      },
+      "containers": [
+        {
+          "id": 10,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "delete"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "staff_cannot_rename_exams",
+      "subject": {
+        "node": 4
+      },
+      "containers": [
+        {
+          "id": 10,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "rename"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "assistants_cannot_publish_documents",
+      "subject": {
+        "node": 6
+      },
+      "containers": [
+        {
+          "id": 8,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "publish"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "interns_no_download_1",
+      "subject": {
+        "node": 12
+      },
+      "containers": [
+        {
+          "id": 13,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "download"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "interns_no_download_2",
+      "subject": {
+        "node": 12
+      },
+      "containers": [
+        {
+          "id": 13,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "download"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "interns_no_download_share",
+      "subject": {
+        "node": 12
+      },
+      "containers": [
+        {
+          "id": 13,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "download",
+        "share"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "auditor_cannot_audit",
+      "subject": {
+        "node": 17
+      },
+      "containers": [
+        {
+          "id": 18,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "audit"
+      ],
+      "intersection": false
+    }
+  ],
+  "obligations": [],
+  "operations": {
+    "resourceOperations": [],
+    "adminOperations": []
+  }
+}

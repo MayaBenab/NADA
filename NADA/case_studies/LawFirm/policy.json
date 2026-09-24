@@ -1,0 +1,364 @@
+{
+  "resourceAccessRights": [
+    "accept",
+    "access",
+    "addcase",
+    "appointed",
+    "deletecase",
+    "disapprove",
+    "fire",
+    "hire",
+    "refuse",
+    "withdraw"
+  ],
+  "graph": {
+    "pcs": [
+      {
+        "id": 9,
+        "name": "CasePolicy"
+      },
+      {
+        "id": 21,
+        "name": "LawFirmPolicy"
+      }
+    ],
+    "uas": [
+      {
+        "id": 1,
+        "name": "C-Suit",
+        "assignments": [
+          11,
+          3
+        ],
+        "associations": []
+      },
+      {
+        "id": 2,
+        "name": "I1",
+        "assignments": [
+          16
+        ],
+        "associations": []
+      },
+      {
+        "id": 3,
+        "name": "LeadAttorneys",
+        "assignments": [
+          15,
+          11
+        ],
+        "associations": [
+          {
+            "target": 25,
+            "arset": [
+              "disapprove",
+              "withdraw"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "HR",
+        "assignments": [
+          11
+        ],
+        "associations": []
+      },
+      {
+        "id": 11,
+        "name": "MainOffice",
+        "assignments": [
+          23
+        ],
+        "associations": [
+          {
+            "target": 23,
+            "arset": [
+              "hire",
+              "fire"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "name": "Attorneys",
+        "assignments": [
+          9,
+          23
+        ],
+        "associations": [
+          {
+            "target": 25,
+            "arset": [
+              "refuse",
+              "accept"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "name": "Interns",
+        "assignments": [
+          15
+        ],
+        "associations": []
+      },
+      {
+        "id": 19,
+        "name": "JD1",
+        "assignments": [
+          15
+        ],
+        "associations": [
+          {
+            "target": 27,
+            "arset": [
+              "appointed"
+            ]
+          },
+          {
+            "target": 24,
+            "arset": [
+              "appointed"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "name": "JD2",
+        "assignments": [
+          15
+        ],
+        "associations": []
+      },
+      {
+        "id": 23,
+        "name": "Office1",
+        "assignments": [
+          21
+        ],
+        "associations": [
+          {
+            "target": 7,
+            "arset": [
+              "addcase",
+              "deletecase"
+            ]
+          },
+          {
+            "target": 26,
+            "arset": [
+              "access"
+            ]
+          }
+        ]
+      }
+    ],
+    "oas": [
+      {
+        "id": 7,
+        "name": "GeneralInfo",
+        "assignments": [
+          26
+        ]
+      },
+      {
+        "id": 24,
+        "name": "Case1",
+        "assignments": [
+          7
+        ]
+      },
+      {
+        "id": 25,
+        "name": "Case3",
+        "assignments": [
+          9
+        ]
+      },
+      {
+        "id": 26,
+        "name": "Cases",
+        "assignments": [
+          21
+        ]
+      },
+      {
+        "id": 27,
+        "name": "Case2",
+        "assignments": [
+          7
+        ]
+      }
+    ],
+    "users": [
+      {
+        "id": 5,
+        "name": "C1",
+        "assignments": [
+          1
+        ]
+      },
+      {
+        "id": 6,
+        "name": "A1",
+        "assignments": [
+          15
+        ]
+      },
+      {
+        "id": 10,
+        "name": "LA1",
+        "assignments": [
+          3
+        ]
+      },
+      {
+        "id": 14,
+        "name": "HR1",
+        "assignments": [
+          4
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": 8,
+        "name": "Bob",
+        "assignments": [
+          24
+        ]
+      },
+      {
+        "id": 12,
+        "name": "Google",
+        "assignments": [
+          25
+        ]
+      },
+      {
+        "id": 13,
+        "name": "Alice",
+        "assignments": [
+          25,
+          27
+        ]
+      },
+      {
+        "id": 17,
+        "name": "Apple",
+        "assignments": [
+          25
+        ]
+      },
+      {
+        "id": 18,
+        "name": "Mike",
+        "assignments": [
+          27
+        ]
+      },
+      {
+        "id": 20,
+        "name": "State",
+        "assignments": [
+          24
+        ]
+      }
+    ]
+  },
+  "prohibitions": [
+    {
+      "name": "prohibition4",
+      "subject": {
+        "node": 1
+      },
+      "containers": [
+        {
+          "id": 25,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "disapprove",
+        "accept"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "prohibition3",
+      "subject": {
+        "node": 4
+      },
+      "containers": [
+        {
+          "id": 11,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "hire",
+        "fire"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "prohibition5",
+      "subject": {
+        "node": 3
+      },
+      "containers": [
+        {
+          "id": 25,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "refuse"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "prohibition1",
+      "subject": {
+        "node": 16
+      },
+      "containers": [
+        {
+          "id": 7,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "access"
+      ],
+      "intersection": false
+    },
+    {
+      "name": "prohibition2",
+      "subject": {
+        "node": 16
+      },
+      "containers": [
+        {
+          "id": 26,
+          "complement": false
+        }
+      ],
+      "arset": [
+        "addcase",
+        "deletecase"
+      ],
+      "intersection": false
+    }
+  ],
+  "obligations": [],
+  "operations": {
+    "resourceOperations": [],
+    "adminOperations": []
+  }
+}
