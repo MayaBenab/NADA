@@ -1,4 +1,4 @@
-# NADA — NGAC Anomaly Detection & Analysis
+# NADA — NGAC Anomaly Detection Analyzer
 
 NADA is a desktop tool that builds the **complemented graph** `G_Com` of an NGAC policy (the
 policy graph in which every prohibition is added as edges) and detects three kinds of anomalies
